@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 class Business: NSObject {
     let name: String?
     let address: String?
@@ -16,10 +16,12 @@ class Business: NSObject {
     let distance: String?
     let ratingImageURL: URL?
     let reviewCount: NSNumber?
+    var latitude: CLLocationDegrees = 0.0
+    var longtitude: CLLocationDegrees = 0.0
+    
     
     init(dictionary: NSDictionary) {
         name = dictionary["name"] as? String
-        
         let imageURLString = dictionary["image_url"] as? String
         if imageURLString != nil {
             imageURL = URL(string: imageURLString!)!
@@ -28,8 +30,22 @@ class Business: NSObject {
         }
         
         let location = dictionary["location"] as? NSDictionary
+        
         var address = ""
         if location != nil {
+            //print (location!["coordinate"]!)
+            let temp  = (location!["coordinate"]!) as! NSDictionary
+            if temp["latitude"] != nil {
+                self.latitude = temp["latitude"] as! CLLocationDegrees
+                //print ("\(self.latitude)")
+
+            }
+            
+            if temp["longtitude"] != nil {
+                self.longtitude = temp["latitude"] as! CLLocationDegrees
+                //print("\(self.longtitude)")
+            }
+            
             let addressArray = location!["address"] as? NSArray
             if addressArray != nil && addressArray!.count > 0 {
                 address = addressArray![0] as! String
