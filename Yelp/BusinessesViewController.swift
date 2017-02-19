@@ -8,22 +8,28 @@
 
 import UIKit
 
-class BusinessesViewController: UIViewController {
+class BusinessesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
+    @IBOutlet weak var tableview: UITableView!
     var businesses: [Business]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableview.delegate = self
+        tableview.dataSource = self
         
         Business.searchWithTerm(term: "Thai", completion: { (businesses: [Business]?, error: Error?) -> Void in
             
-            self.businesses = businesses
-            if let businesses = businesses {
-                for business in businesses {
-                    print(business.name!)
-                    print(business.address!)
+                self.businesses = businesses
+                self.tableview.reloadData()
+                if let businesses = businesses {
+                    for business in businesses {
+                        print(business.name!)
+                        print(business.address!)
+                        print("\n")
+                    }
                 }
-            }
             
             }
         )
@@ -40,11 +46,33 @@ class BusinessesViewController: UIViewController {
          */
         
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+
+    //@available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if businesses != nil {
+            return businesses.count
+        } else {
+            return 0
+        }
     }
+    
+    
+    // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
+    // Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
+    
+    //@available(iOS 2.0, *)
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableview.dequeueReusableCell(withIdentifier: "BusinessCell") as! BusinessCell
+        
+        cell.business = businesses[indexPath.row]
+        
+        
+        return cell
+        
+    }
+
     
     /*
      // MARK: - Navigation
