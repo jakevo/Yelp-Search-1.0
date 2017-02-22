@@ -28,6 +28,7 @@ The following **additional** features are implemented:
 - [x] List anything else that you can get done to improve the app functionality!
     - [x] Display business around user's real location.
     - [x] Users can search for all kinf of business around them not only the name in the table list
+    - [x] Users can search directy on map by typing the business name and the location of this business will pop up on the map
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
