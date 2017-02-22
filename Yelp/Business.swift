@@ -17,7 +17,7 @@ class Business: NSObject {
     let ratingImageURL: URL?
     let reviewCount: NSNumber?
     var latitude: CLLocationDegrees = 0.0
-    var longtitude: CLLocationDegrees = 0.0
+    var longitude: CLLocationDegrees = 0.0
     
     
     init(dictionary: NSDictionary) {
@@ -40,10 +40,10 @@ class Business: NSObject {
                 //print ("\(self.latitude)")
 
             }
-            
-            if temp["longtitude"] != nil {
-                self.longtitude = temp["latitude"] as! CLLocationDegrees
-                //print("\(self.longtitude)")
+            //print (temp)
+            if temp["longitude"] != nil {
+                self.longitude = temp["longitude"] as! CLLocationDegrees
+                //print("long is \(self.longitude)")
             }
             
             let addressArray = location!["address"] as? NSArray

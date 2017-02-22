@@ -58,7 +58,7 @@ class YelpClient: BDBOAuth1RequestOperationManager, CLLocationManagerDelegate  {
         
         let latitude: CLLocationDegrees = (defaults.object(forKey: "latitude") as? CLLocationDegrees)!
         
-        let longtitude: CLLocationDegrees = (defaults.object(forKey: "longtitude") as? CLLocationDegrees)!
+        let longtitude: CLLocationDegrees = (defaults.object(forKey: "longitude") as? CLLocationDegrees)!
         
         parameters = ["term": term as AnyObject, "ll": "\(latitude),\(longtitude)" as AnyObject]
         if sort != nil {
@@ -73,7 +73,7 @@ class YelpClient: BDBOAuth1RequestOperationManager, CLLocationManagerDelegate  {
             parameters["deals_filter"] = deals! as AnyObject?
         }
         
-        //print(parameters)
+        print(parameters)
         
         
         return self.get("search", parameters: parameters,

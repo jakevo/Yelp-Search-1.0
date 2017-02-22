@@ -35,7 +35,7 @@ class BusinessCell: UITableViewCell, CLLocationManagerDelegate {
             category.text = business.categories
             review.text = "\(business.reviewCount!)" + " review"
             latitude = business.latitude
-            longtitude = business.longtitude
+            longtitude = business.longitude
         }
     }
     

@@ -127,7 +127,15 @@
                             <constraint firstItem="bRv-Hi-aqz" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="qpP-lb-fDP"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="DkD-yu-ToY"/>
+                    <navigationItem key="navigationItem" id="DkD-yu-ToY">
+                        <barButtonItem key="rightBarButtonItem" image="iconmonstr-map-4-32" id="cZc-CF-MTj">
+                            <inset key="imageInsets" minX="-11" minY="-3" maxX="0.0" maxY="-1"/>
+                            <color key="tintColor" red="0.11029858142137527" green="0.094903849065303802" blue="0.027419695630669594" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="zKJ-r2-jce" kind="show" id="RH4-Nq-a82"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableview" destination="bRv-Hi-aqz" id="of3-vU-pj8"/>
                     </connections>
@@ -135,6 +143,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2572" y="358"/>
+        </scene>
+        <!--Business Map View Controller-->
+        <scene sceneID="562-oT-8QG">
+            <objects>
+                <viewController id="zKJ-r2-jce" customClass="BusinessMapViewController" customModule="Yelp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iTl-SX-DsX"/>
+                        <viewControllerLayoutGuide type="bottom" id="G30-j3-6zg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EHV-uh-muD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PM7-Ix-MWj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="PM7-Ix-MWj" secondAttribute="trailing" id="28n-pq-BO4"/>
+                            <constraint firstItem="G30-j3-6zg" firstAttribute="top" secondItem="PM7-Ix-MWj" secondAttribute="bottom" id="3tf-9w-tYq"/>
+                            <constraint firstItem="PM7-Ix-MWj" firstAttribute="top" secondItem="EHV-uh-muD" secondAttribute="top" constant="64" id="BxT-N2-o0A"/>
+                            <constraint firstItem="PM7-Ix-MWj" firstAttribute="leading" secondItem="EHV-uh-muD" secondAttribute="leading" id="bj9-ZP-cNR"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="IsI-Lm-DF6"/>
+                    <connections>
+                        <outlet property="mapview" destination="PM7-Ix-MWj" id="vwn-60-u5q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ToP-qX-DnM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3425" y="326"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ati-3w-cMx">
@@ -159,4 +200,7 @@
             <point key="canvasLocation" x="1788" y="357.57121439280365"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="iconmonstr-map-4-32" width="32" height="32"/>
+    </resources>
 </document>

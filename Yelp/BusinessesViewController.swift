@@ -43,10 +43,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         refresher.addTarget(self, action: #selector(BusinessesViewController.refresh), for: UIControlEvents.valueChanged)
         tableview.addSubview(refresher)
        
-        
-        
         searchBarFunc()
-        
         
         /* Example of Yelp search with more search options specified
          Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
@@ -80,7 +77,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
             //print ("\(startLocation.coordinate.latitude)")
             //print ("\(startLocation.coordinate.longitude)")
             defaults.set(startLocation.coordinate.latitude, forKey: "latitude")
-            defaults.set(startLocation.coordinate.longitude, forKey: "longtitude")
+            defaults.set(startLocation.coordinate.longitude, forKey: "longitude")
             
             refresh()
         }
@@ -97,7 +94,7 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         searchBar.placeholder = "Business"
         //self.tableview.tableHeaderView = searchBar
         
-        let frame = CGRect(x: 0, y: 0, width: 380, height: 70)
+        let frame = CGRect(x: 0, y: 0, width: 320, height: 70)
         let titleView = UIView(frame: frame)
         searchBar.backgroundImage = UIImage()
         searchBar.frame = frame
@@ -187,12 +184,6 @@ class BusinessesViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    public func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        
-        
-        
-    }
-
     
     /*
      // MARK: - Navigation
